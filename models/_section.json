@@ -41,6 +41,10 @@
             {
               "name": "Featured Report",
               "value": "featured-report"
+            },
+            {
+              "name": "Region Cards",
+              "value": "region-cards"
             }
           ]
         }
