@@ -19,6 +19,61 @@
   display: block;
 }
 
+.section.featured-report .columns-wrapper {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.section.featured-report .columns > div {
+  gap: 32px;
+}
+
+.section.featured-report .columns img {
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.section.featured-report .columns h1,
+.section.featured-report .columns h2,
+.section.featured-report .columns h3 {
+  max-width: 430px;
+  margin: 0 0 16px;
+  color: #0c2017;
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 0.9;
+}
+
+.section.featured-report .columns p {
+  max-width: 530px;
+  color: #839189;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.section.featured-report .columns p.button-wrapper {
+  max-width: 530px;
+  margin-top: 16px;
+  border-top: 1px solid #d8d1c7;
+  padding-top: 14px;
+  text-align: center;
+}
+
+.section.featured-report .columns a.button:any-link {
+  min-width: 280px;
+  border-color: #0c2017 #0c2017 #ef5f13;
+  border-width: 2px 2px 4px;
+  padding: 9px 28px 7px;
+  background-color: #0c2017;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
@@ -29,5 +84,17 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+
+  .section.featured-report .columns > div {
+    gap: 42px;
+  }
+
+  .section.featured-report .columns > div > div:first-child {
+    flex: 0 1 52%;
+  }
+
+  .section.featured-report .columns > div > div:last-child {
+    flex: 0 1 48%;
   }
 }

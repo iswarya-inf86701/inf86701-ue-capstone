@@ -140,6 +140,10 @@
           {
             "name": "Orange",
             "value": "orange"
+          },
+          {
+            "name": "Featured Report",
+            "value": "featured-report"
           }
         ]
       }
