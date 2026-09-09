@@ -35,10 +35,55 @@
           "value": ""
         },
         {
+          "component": "text",
+          "valueType": "string",
+          "name": "eyebrow",
+          "label": "Eyebrow",
+          "value": "WKND Adventures"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Title",
+          "value": "Destinations"
+        },
+        {
+          "component": "textarea",
+          "valueType": "string",
+          "name": "description",
+          "label": "Description",
+          "value": "From Patagonian valleys to Norwegian fjords - where will you go next?"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "primaryCtaLabel",
+          "label": "Primary CTA Label",
+          "value": "Americas"
+        },
+        {
+          "component": "aem-content",
+          "name": "primaryCtaUrl",
+          "label": "Primary CTA URL"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "secondaryCtaLabel",
+          "label": "Secondary CTA Label",
+          "value": "Europe"
+        },
+        {
+          "component": "aem-content",
+          "name": "secondaryCtaUrl",
+          "label": "Secondary CTA URL"
+        },
+        {
           "component": "richtext",
           "name": "text",
           "value": "",
-          "label": "Text",
+          "label": "Fallback Text",
           "valueType": "string"
         }
       ]
