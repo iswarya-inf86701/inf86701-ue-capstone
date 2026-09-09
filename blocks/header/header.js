@@ -40,8 +40,9 @@ function closeOnFocusLost(e) {
 
 function openOnKeydown(e) {
   const focused = document.activeElement;
-  const isNavDrop = focused.className === 'nav-drop';
+  const isNavDrop = focused.classList.contains('nav-drop');
   if (isNavDrop && (e.code === 'Enter' || e.code === 'Space')) {
+    e.preventDefault();
     const dropExpanded = focused.getAttribute('aria-expanded') === 'true';
     // eslint-disable-next-line no-use-before-define
     toggleAllNavSections(focused.closest('.nav-sections'));
@@ -131,23 +132,47 @@ export default async function decorate(block) {
   });
 
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+  if (navBrand) {
+    const brandLink = navBrand.querySelector('.button, a[href]');
+    const brandMedia = navBrand.querySelector('picture, img');
+    if (brandLink) {
+      brandLink.className = '';
+      const brandLinkWrapper = brandLink.closest('.button-container');
+      if (brandLinkWrapper) brandLinkWrapper.className = '';
+      if (brandMedia && !brandLink.contains(brandMedia)) brandLink.prepend(brandMedia);
+      [...navBrand.querySelectorAll('p, div')].forEach((element) => {
+        if (!element.children.length && !element.textContent.trim()) element.remove();
+      });
+    }
   }
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
-      });
+      const dropdown = navSection.querySelector(':scope > ul');
+      if (dropdown) {
+        navSection.classList.add('nav-drop');
+        navSection.setAttribute('aria-haspopup', 'true');
+        navSection.setAttribute('aria-expanded', 'false');
+        navSection.addEventListener('click', (e) => {
+          if (dropdown.contains(e.target)) {
+            if (e.target.closest('a')) toggleAllNavSections(navSections);
+          } else if (isDesktop.matches) {
+            const expanded = navSection.getAttribute('aria-expanded') === 'true';
+            toggleAllNavSections(navSections);
+            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          }
+        });
+        navSection.addEventListener('focusout', (e) => {
+          if (isDesktop.matches && !navSection.contains(e.relatedTarget)) {
+            navSection.setAttribute('aria-expanded', 'false');
+          }
+        });
+      } else {
+        navSection.addEventListener('click', () => {
+          if (isDesktop.matches) toggleAllNavSections(navSections);
+        });
+      }
     });
   }
 
