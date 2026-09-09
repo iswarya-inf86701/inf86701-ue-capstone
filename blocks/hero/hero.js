@@ -1,6 +1,10 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
+function isLinkValue(value) {
+  return /^(#|\/|https?:\/\/|mailto:|tel:)/.test(value);
+}
+
 export default function decorate(block) {
   const picture = block.querySelector('picture');
   if (picture) {
@@ -30,19 +34,53 @@ export default function decorate(block) {
     row.remove();
   });
 
-  const eyebrow = content.querySelector('p:not(.button-wrapper)');
+  const authoredText = [...content.querySelectorAll('p:not(.button-wrapper)')]
+    .filter((item) => item.textContent.trim());
+
+  const eyebrow = authoredText[0];
   if (eyebrow && !eyebrow.querySelector('a')) eyebrow.classList.add('hero-eyebrow');
 
-  const textBlocks = [...content.querySelectorAll(':scope > p:not(.hero-eyebrow, .button-wrapper)')];
+  const textBlocks = authoredText.filter((item) => !item.classList.contains('hero-eyebrow'));
   const hasHeading = content.querySelector('h1, h2');
   if (!hasHeading && textBlocks[0]) textBlocks[0].classList.add('hero-title');
   const description = hasHeading ? textBlocks[0] : textBlocks[1];
   if (description) description.classList.add('hero-description');
 
-  const actionItems = textBlocks
-    .filter((item) => !item.classList.contains('hero-title') && !item.classList.contains('hero-description'))
-    .filter((item) => item.querySelector('a') || item.textContent.trim().length <= 40);
-  actionItems.forEach((item) => item.classList.add('hero-action'));
+  const actionItems = textBlocks.filter((item) => (
+    !item.classList.contains('hero-title')
+    && !item.classList.contains('hero-description')
+  ));
+  const actions = document.createElement('div');
+  actions.className = 'hero-actions';
+
+  actionItems.forEach((item, index) => {
+    const text = item.textContent.trim();
+    const nextItem = actionItems[index + 1];
+    const nextLink = nextItem?.querySelector('a');
+    const nextText = nextItem?.textContent.trim();
+
+    if (isLinkValue(text)) {
+      item.remove();
+      return;
+    }
+
+    if (nextText && isLinkValue(nextText)) {
+      const action = document.createElement('a');
+      action.className = 'hero-action';
+      action.href = nextLink?.getAttribute('href') || nextText;
+      action.textContent = text;
+      moveInstrumentation(item, action);
+      actions.append(action);
+      item.remove();
+      nextItem.remove();
+    }
+  });
+
+  actionItems.forEach((item) => {
+    if (isLinkValue(item.textContent.trim())) item.remove();
+  });
+
+  if (actions.children.length) content.append(actions);
 
   if (content.children.length) block.append(content);
 }

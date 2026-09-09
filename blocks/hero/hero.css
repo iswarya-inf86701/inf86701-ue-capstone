@@ -60,7 +60,6 @@
   text-transform: none;
 }
 
-.hero .hero-content > p:not(.hero-eyebrow, .hero-title, .hero-action, .button-wrapper),
 .hero .hero-description {
   max-width: 560px;
   margin-top: 18px;
@@ -69,10 +68,17 @@
   line-height: 1.5;
 }
 
+.hero .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
 .hero .button-wrapper,
 .hero .hero-action {
   display: inline-flex;
-  margin: 24px 12px 0 0;
+  margin: 0;
 }
 
 .hero .button,
