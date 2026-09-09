@@ -323,3 +323,25 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+main .section.orange {
+  background-color: #f58220;
+  color: var(--text-color);
+  margin: 0;
+  padding: 40px 0;
+  text-align: center;
+}
+
+main .section.orange a:any-link {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+main .section.orange h1,
+main .section.orange h2,
+main .section.orange h3,
+main .section.orange p {
+  max-width: 780px;
+  margin-right: auto;
+  margin-left: auto;
+}
