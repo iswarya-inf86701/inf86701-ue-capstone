@@ -210,29 +210,25 @@
         "component": "text",
         "valueType": "string",
         "name": "eyebrow",
-        "label": "Eyebrow",
-        "value": "WKND Adventures"
+        "label": "Eyebrow"
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "title",
-        "label": "Title",
-        "value": "Destinations"
+        "label": "Title"
       },
       {
         "component": "textarea",
         "valueType": "string",
         "name": "description",
-        "label": "Description",
-        "value": "From Patagonian valleys to Norwegian fjords - where will you go next?"
+        "label": "Description"
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "primaryCtaLabel",
-        "label": "Primary CTA Label",
-        "value": "Americas"
+        "label": "Primary CTA Label"
       },
       {
         "component": "aem-content",
@@ -243,8 +239,7 @@
         "component": "text",
         "valueType": "string",
         "name": "secondaryCtaLabel",
-        "label": "Secondary CTA Label",
-        "value": "Europe"
+        "label": "Secondary CTA Label"
       },
       {
         "component": "aem-content",
