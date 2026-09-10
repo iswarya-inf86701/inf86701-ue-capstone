@@ -83,9 +83,9 @@
 
 .hero .button,
 .hero .hero-action {
-  border-color: #fff #fff #ef5f13;
+  border-color: #fff #ef5f13 #ef5f13 #fff;
   border-style: solid;
-  border-width: 2px 2px 4px;
+  border-width: 2px 3px 3px 2px;
   border-radius: 999px;
   padding: 9px 28px 7px;
   background: #fff;
@@ -101,7 +101,7 @@
 .hero .button:focus-visible,
 .hero .hero-action:hover,
 .hero .hero-action:focus-visible {
-  border-color: #fff #fff #ef5f13;
+  border-color: #fff #ef5f13 #ef5f13 #fff;
   background: #fff;
   color: #0c2017;
   text-decoration: none;
