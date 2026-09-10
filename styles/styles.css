@@ -414,7 +414,7 @@ main .section.dark-cta p.button-wrapper {
 main .section.dark-cta a.button:any-link {
   min-width: 300px;
   border-color: #fff var(--accent-color) var(--accent-color) #fff;
-  border-width: 2px 4px 4px 2px;
+  border-width: 2px 3px 3px 2px;
   padding: 10px 28px 8px;
   background-color: #fff;
   color: #0c2017;
@@ -491,7 +491,7 @@ main .section.dark-article p:last-child {
 main .section.editorial-cta a.button:any-link {
   min-width: 250px;
   border-color: #0c2017 var(--accent-color) var(--accent-color) #0c2017;
-  border-width: 2px 4px 4px 2px;
+  border-width: 2px 3px 3px 2px;
   box-shadow: none;
   padding: 9px 28px 7px;
   color: #0c2017;
@@ -504,8 +504,7 @@ main .section.editorial-cta a.button:any-link {
 
 main .section.editorial-cta a.button.primary:any-link,
 main .section.editorial-cta a.button.accent:any-link {
-  border-color: var(--accent-color) var(--accent-color) #0c2017;
-  border-bottom-color: #0c2017;
+  border-color: var(--accent-color) #0c2017 #0c2017 var(--accent-color);
   background-color: var(--accent-color);
 }
 
