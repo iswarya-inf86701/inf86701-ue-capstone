@@ -30,6 +30,19 @@
         {
           "component": "text",
           "valueType": "string",
+          "name": "imageAlt",
+          "label": "Alt",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "eyebrow",
+          "label": "Eyebrow"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
           "name": "title",
           "label": "Title"
         },
@@ -40,9 +53,33 @@
           "label": "Description"
         },
         {
+          "component": "text",
+          "valueType": "string",
+          "name": "primaryCtaLabel",
+          "label": "Primary CTA Label"
+        },
+        {
           "component": "aem-content",
           "name": "primaryCtaUrl",
           "label": "Primary CTA URL"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "secondaryCtaLabel",
+          "label": "Secondary CTA Label"
+        },
+        {
+          "component": "aem-content",
+          "name": "secondaryCtaUrl",
+          "label": "Secondary CTA URL"
+        },
+        {
+          "component": "richtext",
+          "name": "text",
+          "value": "",
+          "label": "Fallback Text",
+          "valueType": "string"
         }
       ]
     }

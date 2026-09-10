@@ -152,18 +152,36 @@ Perform one edit per block to validate authoring:
 
 ## Linting & Code Quality
 
-**Status:** All tests passing (exit code 0)
+**Status:** 2 intentional xwalk/max-cells violations (see note below)
 
-- **ESLint:** JavaScript and JSON models follow Airbnb + xwalk rules
+- **ESLint:** JavaScript and JSON models follow Airbnb + xwalk rules (with documented exceptions)
 - **Stylelint:** CSS follows standard configuration with modern features
-- **Max Cells Rule:** All component models limited to 4 fields for simplicity and focus
+- **Xwalk Exception:** Hero (10 fields) and Cards (5 fields) exceed max 4 cells rule to maintain authoring consistency
 - **Line Endings:** Unix (LF) enforced for cross-platform compatibility
 
-**Run checks before committing:**
+### Xwalk Max-Cells Exception Rationale
+
+The `eslint-plugin-xwalk` enforces a max of 4 editable fields per component model for simplicity and focus. This project intentionally exceeds that limit for two blocks:
+
+**Hero Block (10 fields)**
+- Authoring requirement: Authors must be able to create all hero variations (eyebrow, primary CTA, secondary CTA) consistently
+- Existing heroes have all fields; new heroes should too
+- Removing fields would create inconsistency where some heroes lack eyebrow or secondary CTA options
+- Solution: Accept xwalk violation to maintain authoring parity
+
+**Cards Block (5 fields)**
+- Authoring requirement: Card descriptions are essential for destination content
+- Existing cards display descriptions; new cards should allow full authoring
+- Limitation to 4 fields would prevent description editing in UE (would require AEM editor)
+- Solution: Accept xwalk violation to maintain full UE authoring capability
+
+**Linting check:**
 ```sh
-npm run lint          # Check all files
-npm run lint:fix      # Auto-fix fixable issues
+npm run lint          # Reports 2 errors (hero 10 fields, cards 5 fields)
+npm run lint:fix      # Auto-fixes fixable issues (line endings, formatting)
 ```
+
+Both violations are documented in QA-CHECKLIST.md and are intentional design decisions prioritizing authoring consistency over strict rule compliance.
 
 ## CSS & Responsive Design
 
