@@ -124,7 +124,7 @@ export function decorateButtons(main) {
       const outer = strong.contains(em) ? strong : em;
       outer.replaceWith(a);
     } else if (strong) {
-      applyButtonType(a, 'primary');
+      applyButtonType(a);
       strong.replaceWith(a);
     } else if (em) {
       applyButtonType(a, 'secondary');
