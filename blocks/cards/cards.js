@@ -40,7 +40,7 @@ function moveCellContent(cell, className) {
   return content;
 }
 
-function decorateStructuredCardBodies(card) {
+function decorateStructuredCardBodies(card, textOnly = false) {
   const bodies = [...card.querySelectorAll(':scope > .cards-card-body')]
     .filter((body) => body.textContent.trim() || body.querySelector('a[href]'));
 
@@ -57,17 +57,22 @@ function decorateStructuredCardBodies(card) {
     body.dataset.cardLabel = cardLink.label;
   }
 
-  [
+  const fields = textOnly ? [
+    [bodies[0], 'cards-card-title'],
+    [bodies[1], 'cards-card-description'],
+  ] : [
     [bodies[0], 'cards-card-eyebrow'],
     [bodies[1], 'cards-card-title'],
     [bodies[2], 'cards-card-description'],
-  ].forEach(([cell, className]) => {
+  ];
+
+  fields.forEach(([cell, className]) => {
     if (!cell) return;
     body.append(moveCellContent(cell, className));
     cell.remove();
   });
 
-  bodies.slice(3).forEach((cell) => {
+  bodies.slice(textOnly ? 2 : 3).forEach((cell) => {
     while (cell.firstChild) body.append(cell.firstChild);
     cell.remove();
   });
@@ -93,6 +98,7 @@ function makeCardLink(card) {
 export default function decorate(block) {
   /* change to ul, li */
   const ul = document.createElement('ul');
+  const textOnly = block.closest('.section.season-cards');
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
     moveInstrumentation(row, li);
@@ -101,7 +107,7 @@ export default function decorate(block) {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
       else div.className = 'cards-card-body';
     });
-    decorateStructuredCardBodies(li);
+    decorateStructuredCardBodies(li, textOnly);
     makeCardLink(li);
     ul.append(li);
   });

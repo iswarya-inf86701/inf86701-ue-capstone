@@ -57,6 +57,14 @@
             {
               "name": "Editorial CTA",
               "value": "editorial-cta"
+            },
+            {
+              "name": "Dark CTA",
+              "value": "dark-cta"
+            },
+            {
+              "name": "Season Cards",
+              "value": "season-cards"
             }
           ]
         }

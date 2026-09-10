@@ -34,29 +34,32 @@
   object-fit: cover;
 }
 
-.section.region-cards .cards-wrapper {
+.section.region-cards .cards-wrapper,
+.section.season-cards .cards-wrapper {
   max-width: 1020px;
+}
+
+.section.region-cards .cards-wrapper {
   padding-bottom: 56px;
 }
 
-.section.region-cards .cards > ul {
+.section.region-cards .cards > ul,
+.section.season-cards .cards > ul {
   grid-template-columns: 1fr;
   justify-content: center;
   gap: 24px;
 }
 
-.section.region-cards .cards > ul > li {
+.section.region-cards .cards > ul > li,
+.section.season-cards .cards > ul > li {
   overflow: hidden;
-  border: 1px solid #ddd8d0;
   border-radius: 14px;
-  background-color: #fff;
-  transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
-.section.region-cards .cards > ul > li:has(.cards-card-link:hover),
-.section.region-cards .cards > ul > li:has(.cards-card-link:focus-visible) {
-  box-shadow: 0 16px 34px rgb(12 32 23 / 12%);
-  transform: translateY(-2px);
+.section.region-cards .cards > ul > li {
+  border: 1px solid #ddd8d0;
+  background-color: #fff;
+  transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
 .section.region-cards .cards .cards-card-body {
@@ -105,6 +108,53 @@
 
 @media (width >= 900px) {
   .section.region-cards .cards > ul {
+    grid-template-columns: repeat(3, minmax(0, 320px));
+  }
+}
+
+.section.season-cards .cards > ul > li {
+  border: 1px solid rgb(255 255 255 / 10%);
+  background-color: rgb(255 255 255 / 5%);
+}
+
+.section.season-cards .cards-wrapper {
+  padding-bottom: 72px;
+}
+
+.section.region-cards .cards > ul > li:has(.cards-card-link:hover),
+.section.region-cards .cards > ul > li:has(.cards-card-link:focus-visible) {
+  box-shadow: 0 16px 34px rgb(12 32 23 / 12%);
+  transform: translateY(-2px);
+}
+
+.section.season-cards .cards .cards-card-body {
+  margin: 0;
+  padding: 24px 20px 28px;
+}
+
+.section.season-cards .cards .cards-card-title,
+.section.season-cards .cards h1,
+.section.season-cards .cards h2,
+.section.season-cards .cards h3,
+.section.season-cards .cards h4 {
+  margin: 0 0 22px;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.section.season-cards .cards .cards-card-description {
+  margin: 0;
+  color: rgb(255 255 255 / 55%);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+@media (width >= 900px) {
+  .section.region-cards .cards > ul,
+  .section.season-cards .cards > ul {
     grid-template-columns: repeat(3, minmax(0, 320px));
   }
 }
