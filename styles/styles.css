@@ -180,16 +180,13 @@ button.button {
   justify-content: center;
   max-width: 100%;
   margin: 0;
-  border: solid transparent;
-  border-width: 2px 3px 3px 2px;
-  border-radius: 999px;
-  padding: 9px 28px 7px;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  line-height: 1;
+  border: 2px solid transparent;
+  border-radius: 2.4em;
+  padding: 0.5em 1.2em;
+  font: inherit;
+  font-weight: 500;
+  line-height: 1.25;
   text-decoration: none;
-  text-transform: uppercase;
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -204,18 +201,18 @@ button.button:disabled {
 
 a.button.primary,
 button.button.primary {
-  border-color: #0c2017 var(--accent-color) var(--accent-color) #0c2017;
-  background-color: #0c2017;
-  color: #fff;
+  border-color: var(--text-color);
+  background-color: var(--text-color);
+  color: var(--background-color);
 }
 
 a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: #0c2017 var(--accent-color) var(--accent-color) #0c2017;
-  background-color: #0c2017;
-  color: #fff;
+  border-color: var(--dark-color);
+  background-color: var(--dark-color);
+  color: var(--light-color);
 }
 
 a.button.primary[aria-disabled="true"],
@@ -231,18 +228,18 @@ button.button.primary:disabled:focus-visible {
 
 a.button.secondary,
 button.button.secondary {
-  border-color: #fff var(--accent-color) var(--accent-color) #fff;
-  background-color: #fff;
-  color: #0c2017;
+  border-color: var(--text-color);
+  background-color: transparent;
+  color: var(--text-color);
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible {
-  border-color: #fff var(--accent-color) var(--accent-color) #fff;
-  background-color: #fff;
-  color: #0c2017;
+  border-color: var(--dark-color);
+  background-color: var(--light-color);
+  color: var(--dark-color);
 }
 
 a.button.secondary[aria-disabled="true"],
@@ -259,18 +256,17 @@ button.button.secondary:disabled:focus-visible {
 /* high-impact call-to-action */
 a.button.accent,
 button.button.accent {
-  border-color: var(--accent-color) #0c2017 #0c2017 var(--accent-color);
-  background-color: var(--accent-color);
-  color: #0c2017;
+  border-color: var(--link-color);
+  background-color: var(--link-color);
+  color: var(--background-color);
 }
 
 a.button.accent:hover,
 a.button.accent:focus-visible,
 button.button.accent:hover,
 button.button.accent:focus-visible {
-  border-color: var(--accent-color) #0c2017 #0c2017 var(--accent-color);
-  background-color: var(--accent-color);
-  color: #0c2017;
+  border-color: var(--link-hover-color);
+  background-color: var(--link-hover-color);
 }
 
 a.button.accent[aria-disabled="true"],
@@ -417,6 +413,16 @@ main .section.dark-cta p.button-wrapper {
 
 main .section.dark-cta a.button:any-link {
   min-width: 300px;
+  border-color: #fff #fff var(--accent-color);
+  border-width: 2px 2px 4px;
+  padding: 10px 28px 8px;
+  background-color: #fff;
+  color: #0c2017;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 main .section.dark-article > .default-content-wrapper {
@@ -484,6 +490,28 @@ main .section.dark-article p:last-child {
 
 main .section.editorial-cta a.button:any-link {
   min-width: 250px;
+  border-color: #0c2017 #0c2017 var(--accent-color);
+  border-width: 2px 2px 4px;
+  box-shadow: none;
+  padding: 9px 28px 7px;
+  color: #0c2017;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+main .section.editorial-cta a.button.primary:any-link,
+main .section.editorial-cta a.button.accent:any-link {
+  border-color: var(--accent-color) var(--accent-color) #0c2017;
+  border-bottom-color: #0c2017;
+  background-color: var(--accent-color);
+}
+
+main .section.editorial-cta a.button.secondary:any-link {
+  background-color: transparent;
+  box-shadow: 0 3px 0 var(--accent-color);
 }
 
 main .section.region-cards > .default-content-wrapper {

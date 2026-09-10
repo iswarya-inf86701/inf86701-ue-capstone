@@ -62,6 +62,16 @@
 
 .section.featured-report .columns a.button:any-link {
   min-width: 280px;
+  border-color: #0c2017 #0c2017 #ef5f13;
+  border-width: 2px 2px 4px;
+  padding: 9px 28px 7px;
+  background-color: #0c2017;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 @media (width >= 900px) {
