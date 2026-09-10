@@ -202,13 +202,6 @@
         "valueType": "string"
       },
       {
-        "component": "textarea",
-        "name": "description",
-        "value": "",
-        "label": "Description",
-        "valueType": "string"
-      },
-      {
         "component": "aem-content",
         "name": "link",
         "label": "Link"
@@ -235,12 +228,71 @@
     ]
   },
   {
+    "id": "footer",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "brandImage",
+        "label": "Brand Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "brandStatement",
+        "label": "Brand Statement"
+      },
+      {
+        "component": "textarea",
+        "valueType": "string",
+        "name": "copyright",
+        "label": "Copyright Text"
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
         "component": "aem-content",
         "name": "reference",
         "label": "Reference"
+      }
+    ]
+  },
+  {
+    "id": "header",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "logo",
+        "label": "Logo Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "logoAlt",
+        "label": "Logo Alt Text",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "logoLink",
+        "label": "Logo Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "utilityLabel",
+        "label": "Utility Action Label"
+      },
+      {
+        "component": "aem-content",
+        "name": "utilityLink",
+        "label": "Utility Action Link"
       }
     ]
   },
@@ -257,19 +309,6 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "eyebrow",
-        "label": "Eyebrow"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
         "name": "title",
         "label": "Title"
       },
@@ -280,33 +319,9 @@
         "label": "Description"
       },
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "primaryCtaLabel",
-        "label": "Primary CTA Label"
-      },
-      {
         "component": "aem-content",
         "name": "primaryCtaUrl",
         "label": "Primary CTA URL"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "secondaryCtaLabel",
-        "label": "Secondary CTA Label"
-      },
-      {
-        "component": "aem-content",
-        "name": "secondaryCtaUrl",
-        "label": "Secondary CTA URL"
-      },
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Fallback Text",
-        "valueType": "string"
       }
     ]
   }

@@ -57,13 +57,6 @@
           "valueType": "string"
         },
         {
-          "component": "textarea",
-          "name": "description",
-          "value": "",
-          "label": "Description",
-          "valueType": "string"
-        },
-        {
           "component": "aem-content",
           "name": "link",
           "label": "Link"
