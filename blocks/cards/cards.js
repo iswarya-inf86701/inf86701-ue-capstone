@@ -40,14 +40,19 @@ function moveCellContent(cell, className) {
   return content;
 }
 
-function decorateStructuredCardBodies(card, textOnly = false) {
-  const bodies = [...card.querySelectorAll(':scope > .cards-card-body')]
-    .filter((body) => body.textContent.trim() || body.querySelector('a[href]'));
+function hasContent(element) {
+  return element.textContent.trim() || element.querySelector('a[href], picture');
+}
 
-  const cardLink = linkOnlyElement(bodies[bodies.length - 1]);
+function decorateStructuredCardBodies(card, textOnly = false) {
+  const bodyCells = [...card.querySelectorAll(':scope > .cards-card-body')];
+  const contentCells = bodyCells.filter(hasContent);
+  bodyCells.filter((cell) => !hasContent(cell)).forEach((cell) => cell.remove());
+
+  const cardLink = linkOnlyElement(contentCells[contentCells.length - 1]);
   if (cardLink) {
-    bodies[bodies.length - 1].remove();
-    bodies.pop();
+    contentCells[contentCells.length - 1].remove();
+    contentCells.pop();
   }
 
   const body = document.createElement('div');
@@ -58,12 +63,12 @@ function decorateStructuredCardBodies(card, textOnly = false) {
   }
 
   const fields = textOnly ? [
-    [bodies[0], 'cards-card-title'],
-    [bodies[1], 'cards-card-description'],
+    [contentCells[0], 'cards-card-title'],
+    [contentCells[1], 'cards-card-description'],
   ] : [
-    [bodies[0], 'cards-card-eyebrow'],
-    [bodies[1], 'cards-card-title'],
-    [bodies[2], 'cards-card-description'],
+    [contentCells[0], 'cards-card-eyebrow'],
+    [contentCells[1], 'cards-card-title'],
+    [contentCells[2], 'cards-card-description'],
   ];
 
   fields.forEach(([cell, className]) => {
@@ -72,7 +77,7 @@ function decorateStructuredCardBodies(card, textOnly = false) {
     cell.remove();
   });
 
-  bodies.slice(textOnly ? 2 : 3).forEach((cell) => {
+  contentCells.slice(textOnly ? 2 : 3).forEach((cell) => {
     while (cell.firstChild) body.append(cell.firstChild);
     cell.remove();
   });

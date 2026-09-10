@@ -366,14 +366,16 @@ main .section.warm-background {
   background-color: #ede9e1;
 }
 
-main .section.dark-article {
+main .section.dark-background {
   background-color: #0c2017;
+}
+
+main .section.dark-article {
   color: rgb(255 255 255 / 78%);
 }
 
 main .section.dark-cta,
 main .section.season-cards {
-  background-color: #0c2017;
   color: rgb(255 255 255 / 78%);
 }
 

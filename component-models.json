@@ -154,6 +154,10 @@
             "value": "warm-background"
           },
           {
+            "name": "Dark Background",
+            "value": "dark-background"
+          },
+          {
             "name": "Dark Article",
             "value": "dark-article"
           },
