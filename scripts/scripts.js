@@ -112,7 +112,8 @@ export function decorateButtons(main) {
     // require authored formatting for buttonization
     const strong = a.closest('strong');
     const em = a.closest('em');
-    if (!strong && !em) return;
+    const editableButton = p.hasAttribute('data-aue-resource') || p.hasAttribute('data-richtext-resource');
+    if (!strong && !em && !editableButton) return;
 
     p.className = 'button-wrapper';
     if (strong && em) { // high-impact call-to-action
@@ -122,9 +123,11 @@ export function decorateButtons(main) {
     } else if (strong) {
       applyButtonType(a, 'primary');
       strong.replaceWith(a);
-    } else {
+    } else if (em) {
       applyButtonType(a, 'secondary');
       em.replaceWith(a);
+    } else {
+      applyButtonType(a);
     }
   });
 }
