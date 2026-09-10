@@ -173,20 +173,27 @@ p.button-wrapper {
 }
 
 a.button:any-link,
-button.button {
+button.button,
+.button-container > a {
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   max-width: 100%;
   margin: 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font: inherit;
-  font-weight: 500;
-  line-height: 1.25;
+  border: solid #0c2017;
+  border-color: #0c2017 var(--accent-color) var(--accent-color) #0c2017;
+  border-width: 2px 3px 3px 2px;
+  border-radius: 999px;
+  padding: 9px 28px 7px;
+  background-color: #0c2017;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
   text-decoration: none;
+  text-transform: uppercase;
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -200,19 +207,30 @@ button.button:disabled {
 }
 
 a.button.primary,
-button.button.primary {
-  border-color: var(--text-color);
-  background-color: var(--text-color);
-  color: var(--background-color);
+button.button.primary,
+.button-container.primary > a {
+  border-color: var(--accent-color) #0c2017 #0c2017 var(--accent-color);
+  background-color: var(--accent-color);
+  color: #0c2017;
+}
+
+a.button.secondary,
+button.button.secondary,
+.button-container.secondary > a {
+  border-color: #fff var(--accent-color) var(--accent-color) #fff;
+  background-color: #fff;
+  color: #0c2017;
 }
 
 a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
-button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
+button.button.primary:focus-visible,
+.button-container.primary > a:hover,
+.button-container.primary > a:focus-visible {
+  border-color: var(--accent-color) #0c2017 #0c2017 var(--accent-color);
+  background-color: var(--accent-color);
+  color: #0c2017;
 }
 
 a.button.primary[aria-disabled="true"],
@@ -226,20 +244,15 @@ button.button.primary:disabled:focus-visible {
   color: var(--dark-color);
 }
 
-a.button.secondary,
-button.button.secondary {
-  border-color: var(--text-color);
-  background-color: transparent;
-  color: var(--text-color);
-}
-
 a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
-button.button.secondary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--light-color);
-  color: var(--dark-color);
+button.button.secondary:focus-visible,
+.button-container.secondary > a:hover,
+.button-container.secondary > a:focus-visible {
+  border-color: #fff var(--accent-color) var(--accent-color) #fff;
+  background-color: #fff;
+  color: #0c2017;
 }
 
 a.button.secondary[aria-disabled="true"],
@@ -248,33 +261,6 @@ a.button.secondary[aria-disabled="true"]:focus-visible,
 button.button.secondary:disabled,
 button.button.secondary:disabled:hover,
 button.button.secondary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
-}
-
-/* high-impact call-to-action */
-a.button.accent,
-button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
-  color: var(--background-color);
-}
-
-a.button.accent:hover,
-a.button.accent:focus-visible,
-button.button.accent:hover,
-button.button.accent:focus-visible {
-  border-color: var(--link-hover-color);
-  background-color: var(--link-hover-color);
-}
-
-a.button.accent[aria-disabled="true"],
-a.button.accent[aria-disabled="true"]:hover,
-a.button.accent[aria-disabled="true"]:focus-visible,
-button.button.accent:disabled,
-button.button.accent:disabled:hover,
-button.button.accent:disabled:focus-visible {
   background-color: var(--light-color);
   border-color: var(--light-color);
   color: var(--dark-color);
@@ -413,16 +399,6 @@ main .section.dark-cta p.button-wrapper {
 
 main .section.dark-cta a.button:any-link {
   min-width: 300px;
-  border-color: #fff var(--accent-color) var(--accent-color) #fff;
-  border-width: 2px 3px 3px 2px;
-  padding: 10px 28px 8px;
-  background-color: #fff;
-  color: #0c2017;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  line-height: 1;
-  text-transform: uppercase;
 }
 
 main .section.dark-article > .default-content-wrapper {
@@ -490,27 +466,6 @@ main .section.dark-article p:last-child {
 
 main .section.editorial-cta a.button:any-link {
   min-width: 250px;
-  border-color: #0c2017 var(--accent-color) var(--accent-color) #0c2017;
-  border-width: 2px 3px 3px 2px;
-  box-shadow: none;
-  padding: 9px 28px 7px;
-  color: #0c2017;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-main .section.editorial-cta a.button.primary:any-link,
-main .section.editorial-cta a.button.accent:any-link {
-  border-color: var(--accent-color) #0c2017 #0c2017 var(--accent-color);
-  background-color: var(--accent-color);
-}
-
-main .section.editorial-cta a.button.secondary:any-link {
-  background-color: transparent;
-  box-shadow: 0 3px 0 var(--accent-color);
 }
 
 main .section.region-cards > .default-content-wrapper {
