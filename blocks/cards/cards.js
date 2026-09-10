@@ -5,8 +5,8 @@ function isLinkValue(value) {
   return /^(#|\/|https?:\/\/|mailto:|tel:)/.test(value);
 }
 
-function linkOnlyParagraph(element) {
-  const link = element?.querySelector(':scope > a[href]');
+function linkOnlyElement(element) {
+  const link = element?.querySelector('a[href]');
   const text = element?.textContent.trim();
 
   if (link && text === link.textContent.trim()) {
@@ -26,21 +26,52 @@ function linkOnlyParagraph(element) {
   return null;
 }
 
-function decorateCardBody(body) {
-  const paragraphs = [...body.querySelectorAll(':scope > p')]
-    .filter((paragraph) => paragraph.textContent.trim());
-  const cardLink = linkOnlyParagraph(paragraphs[paragraphs.length - 1]);
+function moveCellContent(cell, className) {
+  const content = cell.children.length === 1 && cell.firstElementChild
+    ? cell.firstElementChild
+    : document.createElement('p');
 
+  if (!content.parentElement) {
+    while (cell.firstChild) content.append(cell.firstChild);
+  }
+
+  content.classList.add(className);
+  moveInstrumentation(cell, content);
+  return content;
+}
+
+function decorateStructuredCardBodies(card) {
+  const bodies = [...card.querySelectorAll(':scope > .cards-card-body')]
+    .filter((body) => body.textContent.trim() || body.querySelector('a[href]'));
+
+  const cardLink = linkOnlyElement(bodies[bodies.length - 1]);
+  if (cardLink) {
+    bodies[bodies.length - 1].remove();
+    bodies.pop();
+  }
+
+  const body = document.createElement('div');
+  body.className = 'cards-card-body';
   if (cardLink) {
     body.dataset.cardHref = cardLink.href;
     body.dataset.cardLabel = cardLink.label;
-    paragraphs[paragraphs.length - 1].remove();
-    paragraphs.pop();
   }
 
-  paragraphs[0]?.classList.add('cards-card-eyebrow');
-  paragraphs[1]?.classList.add('cards-card-title');
-  paragraphs[2]?.classList.add('cards-card-description');
+  [
+    [bodies[0], 'cards-card-eyebrow'],
+    [bodies[1], 'cards-card-title'],
+    [bodies[2], 'cards-card-description'],
+  ].forEach(([cell, className]) => {
+    if (!cell) return;
+    body.append(moveCellContent(cell, className));
+    cell.remove();
+  });
+
+  bodies.slice(3).forEach((cell) => {
+    while (cell.firstChild) body.append(cell.firstChild);
+    cell.remove();
+  });
+  card.append(body);
 }
 
 function makeCardLink(card) {
@@ -68,11 +99,9 @@ export default function decorate(block) {
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else {
-        div.className = 'cards-card-body';
-        decorateCardBody(div);
-      }
+      else div.className = 'cards-card-body';
     });
+    decorateStructuredCardBodies(li);
     makeCardLink(li);
     ul.append(li);
   });

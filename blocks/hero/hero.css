@@ -39,7 +39,7 @@
   margin: 0 0 12px;
   border-radius: 999px;
   padding: 5px 12px;
-  background: #ef5f13;
+  background: var(--accent-color);
   color: #fff;
   font-size: 11px;
   font-weight: 800;

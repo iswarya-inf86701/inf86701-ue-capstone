@@ -43,10 +43,24 @@
           "multi": false
         },
         {
-          "component": "richtext",
-          "name": "text",
+          "component": "text",
+          "name": "eyebrow",
           "value": "",
-          "label": "Text",
+          "label": "Eyebrow",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "title",
+          "value": "",
+          "label": "Title",
+          "valueType": "string"
+        },
+        {
+          "component": "textarea",
+          "name": "description",
+          "value": "",
+          "label": "Description",
           "valueType": "string"
         },
         {
