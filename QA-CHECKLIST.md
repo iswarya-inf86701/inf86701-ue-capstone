@@ -350,29 +350,13 @@
 
 ---
 
-## Known Limitations & Design Decisions
+## Known Limitations & Deviations
 
-### Xwalk Max-Cells Rule Exception
+1. **Secondary CTA Removed** – Hero block intentionally limited to primary CTA only to comply with xwalk max 4 cells rule. Secondary CTA can be re-added by reducing other fields if needed.
 
-1. **Hero Block: 10 Fields (vs xwalk max 4)**
-   - **Rationale:** Authors must be able to create eyebrows, primary CTAs, and secondary CTAs consistently across all hero blocks
-   - **Existing heroes** have all these fields; new heroes should too
-   - **Exception granted:** Consistency > strict compliance
-   - **Fields included:** image, imageAlt, eyebrow, title, description, primaryCtaLabel, primaryCtaUrl, secondaryCtaLabel, secondaryCtaUrl, text
+2. **Card Description Removed** – Card model focuses on essentials (image, eyebrow, title, link). Description field can be re-added if model is restructured.
 
-2. **Cards Block: 5 Fields (vs xwalk max 4)**
-   - **Rationale:** Card descriptions are essential for destination content; authors must be able to add them consistently
-   - **Existing cards** display descriptions; new cards should allow authoring them in UE
-   - **Exception granted:** Consistency > strict compliance
-   - **Fields included:** image, eyebrow, title, description, link
-
-3. **Linting Note**
-   - `npm run lint` reports 2 violations (hero 10 fields, cards 5 fields)
-   - This is intentional to maintain authoring consistency
-   - Adobe xwalk/recommended rule enforces max 4 fields for simplicity
-   - Trade-off: Prioritized consistent authoring experience over rule compliance
-
-### Other Limitations
+3. **Hero Eyebrow Removed from Model** – Currently static in CSS; not directly editable through UE. Can be added to model if field budget allows.
 
 4. **Windows Development Environment** – Unix line endings (LF) enforced; auto-fixed during linting. No special Git configuration required.
 
