@@ -12,6 +12,13 @@
   background-color: var(--background-color);
 }
 
+.cards .cards-card-link:any-link {
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
 .cards .cards-card-body {
   margin: 16px;
 }
@@ -40,6 +47,13 @@
   border: 1px solid #ddd8d0;
   border-radius: 12px;
   background-color: #fff;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.section.region-cards .cards > ul > li:has(.cards-card-link:hover),
+.section.region-cards .cards > ul > li:has(.cards-card-link:focus-visible) {
+  box-shadow: 0 16px 34px rgb(12 32 23 / 12%);
+  transform: translateY(-2px);
 }
 
 .section.region-cards .cards .cards-card-body {
@@ -47,7 +61,8 @@
   padding: 24px 20px 22px;
 }
 
-.section.region-cards .cards .cards-card-body > p:first-child {
+.section.region-cards .cards .cards-card-eyebrow,
+.section.region-cards .cards .cards-card-kicker {
   display: inline-flex;
   margin: 0 0 18px;
   border-radius: 999px;
@@ -61,6 +76,7 @@
   text-transform: lowercase;
 }
 
+.section.region-cards .cards .cards-card-title,
 .section.region-cards .cards h1,
 .section.region-cards .cards h2,
 .section.region-cards .cards h3,
@@ -73,7 +89,7 @@
   text-transform: uppercase;
 }
 
-.section.region-cards .cards .cards-card-body > p:last-child {
+.section.region-cards .cards .cards-card-description {
   margin: 0;
   color: #87928b;
   font-size: 14px;
