@@ -81,32 +81,6 @@
   margin: 0;
 }
 
-.hero .button,
-.hero .hero-action {
-  border-color: #fff #ef5f13 #ef5f13 #fff;
-  border-style: solid;
-  border-width: 2px 3px 3px 2px;
-  border-radius: 999px;
-  padding: 9px 28px 7px;
-  background: #fff;
-  color: #0c2017;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  line-height: 1;
-  text-transform: capitalize;
-}
-
-.hero .button:hover,
-.hero .button:focus-visible,
-.hero .hero-action:hover,
-.hero .hero-action:focus-visible {
-  border-color: #fff #ef5f13 #ef5f13 #fff;
-  background: #fff;
-  color: #0c2017;
-  text-decoration: none;
-}
-
 .hero img {
   object-fit: cover;
   width: 100%;
