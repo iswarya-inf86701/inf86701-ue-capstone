@@ -156,6 +156,10 @@
           {
             "name": "Dark Article",
             "value": "dark-article"
+          },
+          {
+            "name": "Editorial CTA",
+            "value": "editorial-cta"
           }
         ]
       }
