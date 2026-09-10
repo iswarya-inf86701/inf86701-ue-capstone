@@ -16,5 +16,15 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
+  const brandColumn = footer.querySelector('.section:first-child .columns > div > div:first-child');
+  const brandImage = brandColumn?.querySelector('picture, img');
+  const brandHeading = brandColumn?.querySelector('h1, h2, h3, h4, h5, h6');
+  if (brandImage && brandHeading) {
+    const brand = document.createElement('div');
+    brand.className = 'footer-brand';
+    brand.append(brandImage, brandHeading);
+    brandColumn.prepend(brand);
+  }
+
   block.append(footer);
 }
