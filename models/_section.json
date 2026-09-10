@@ -49,6 +49,10 @@
             {
               "name": "Warm Background",
               "value": "warm-background"
+            },
+            {
+              "name": "Dark Article",
+              "value": "dark-article"
             }
           ]
         }

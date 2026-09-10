@@ -367,6 +367,39 @@ main .section.warm-background {
   background-color: #ede9e1;
 }
 
+main .section.dark-article {
+  background-color: #0c2017;
+  color: rgb(255 255 255 / 78%);
+}
+
+main .section.dark-article > .default-content-wrapper {
+  max-width: 680px;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+main .section.dark-article h1,
+main .section.dark-article h2,
+main .section.dark-article h3 {
+  margin: 0 0 18px;
+  color: #fff;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+main .section.dark-article p {
+  margin: 0 0 18px;
+  color: rgb(255 255 255 / 78%);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+main .section.dark-article p:last-child {
+  margin-bottom: 0;
+}
+
 main .section.region-cards > .default-content-wrapper {
   max-width: 1020px;
   padding-top: 56px;
