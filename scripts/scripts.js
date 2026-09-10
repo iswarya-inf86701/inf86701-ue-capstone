@@ -75,11 +75,11 @@ function buildAutoBlocks() {
  * @param {HTMLElement} main The main container element
  */
 export function decorateButtons(main) {
-  const buttonTypes = ['default', 'primary', 'secondary'];
+  const buttonTypes = ['primary', 'secondary'];
   const applyButtonType = (a, type) => {
     a.classList.add('button');
     buttonTypes.forEach((buttonType) => a.classList.remove(buttonType));
-    if (type && type !== 'default') a.classList.add(type);
+    if (type) a.classList.add(type);
   };
 
   main.querySelectorAll('.button-container a[href]').forEach((a) => {
@@ -112,11 +112,8 @@ export function decorateButtons(main) {
     // require authored formatting for buttonization
     const strong = a.closest('strong');
     const em = a.closest('em');
-    const typedButton = buttonTypes.some((buttonType) => (
-      a.classList.contains(buttonType) || p.classList.contains(buttonType)
-    ));
     const editableButton = p.hasAttribute('data-aue-resource') || p.hasAttribute('data-richtext-resource');
-    if (!strong && !em && !editableButton && !typedButton) return;
+    if (!strong && !em && !editableButton) return;
 
     p.className = 'button-wrapper';
     if (strong && em) { // high-impact call-to-action
@@ -124,16 +121,11 @@ export function decorateButtons(main) {
       const outer = strong.contains(em) ? strong : em;
       outer.replaceWith(a);
     } else if (strong) {
-      applyButtonType(a);
+      applyButtonType(a, 'primary');
       strong.replaceWith(a);
     } else if (em) {
       applyButtonType(a, 'secondary');
       em.replaceWith(a);
-    } else if (typedButton) {
-      const type = buttonTypes.find((buttonType) => (
-        a.classList.contains(buttonType) || p.classList.contains(buttonType)
-      ));
-      applyButtonType(a, type);
     } else {
       applyButtonType(a);
     }
