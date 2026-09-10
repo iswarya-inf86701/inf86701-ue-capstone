@@ -174,7 +174,7 @@ p.button-wrapper {
 
 a.button:any-link,
 button.button,
-.button-container > a {
+:where(.button-container) a:any-link {
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
@@ -208,7 +208,7 @@ button.button:disabled {
 
 a.button.primary,
 button.button.primary,
-.button-container.primary > a {
+:where(.button-container.primary) a:any-link {
   border-color: var(--accent-color) #0c2017 #0c2017 var(--accent-color);
   background-color: var(--accent-color);
   color: #0c2017;
@@ -216,7 +216,7 @@ button.button.primary,
 
 a.button.secondary,
 button.button.secondary,
-.button-container.secondary > a {
+:where(.button-container.secondary) a:any-link {
   border-color: #fff var(--accent-color) var(--accent-color) #fff;
   background-color: #fff;
   color: #0c2017;
@@ -226,8 +226,8 @@ a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible,
-.button-container.primary > a:hover,
-.button-container.primary > a:focus-visible {
+:where(.button-container.primary) a:any-link:hover,
+:where(.button-container.primary) a:any-link:focus-visible {
   border-color: var(--accent-color) #0c2017 #0c2017 var(--accent-color);
   background-color: var(--accent-color);
   color: #0c2017;
@@ -248,8 +248,8 @@ a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible,
-.button-container.secondary > a:hover,
-.button-container.secondary > a:focus-visible {
+:where(.button-container.secondary) a:any-link:hover,
+:where(.button-container.secondary) a:any-link:focus-visible {
   border-color: #fff var(--accent-color) var(--accent-color) #fff;
   background-color: #fff;
   color: #0c2017;
