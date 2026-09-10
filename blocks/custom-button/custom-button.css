@@ -43,6 +43,12 @@
   color: #0c2017;
 }
 
+.custom-button .custom-button-link.outline:any-link {
+  border-color: #0c2017 #ef5f13 #ef5f13 #0c2017;
+  background-color: transparent;
+  color: #0c2017;
+}
+
 .custom-button .custom-button-link:hover,
 .custom-button .custom-button-link:focus-visible {
   text-decoration: none;

@@ -47,6 +47,10 @@
             {
               "name": "secondary",
               "value": "secondary"
+            },
+            {
+              "name": "outline",
+              "value": "outline"
             }
           ]
         },

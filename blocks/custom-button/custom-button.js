@@ -10,7 +10,7 @@ export default function decorate(block) {
   const href = authoredLink?.getAttribute('href') || linkCell?.textContent.trim() || '#';
   const variant = variantCell?.textContent.trim().toLowerCase() || 'default';
   const ariaLabel = ariaLabelCell?.textContent.trim();
-  const buttonType = ['primary', 'secondary'].includes(variant) ? variant : 'default';
+  const buttonType = ['primary', 'secondary', 'outline'].includes(variant) ? variant : 'default';
 
   const wrapper = document.createElement('p');
   wrapper.className = 'custom-button-wrapper';

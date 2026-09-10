@@ -425,6 +425,12 @@ main .section.dark-cta a.button:any-link {
   text-transform: uppercase;
 }
 
+main .section.dark-cta > .custom-button-wrapper {
+  margin-top: -40px;
+  padding-bottom: 64px;
+  text-align: center;
+}
+
 main .section.dark-article > .default-content-wrapper {
   max-width: 680px;
   padding-top: 64px;
