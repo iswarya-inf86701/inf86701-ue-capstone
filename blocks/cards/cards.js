@@ -44,6 +44,23 @@ function hasContent(element) {
   return element.textContent.trim() || element.querySelector('a[href], picture');
 }
 
+function decorateTitleDescriptionCell(cell) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'cards-card-text';
+  moveInstrumentation(cell, wrapper);
+  while (cell.firstChild) wrapper.append(cell.firstChild);
+
+  const heading = wrapper.querySelector('h1, h2, h3, h4, h5, h6');
+  const title = heading || wrapper.querySelector('p');
+  if (title) title.classList.add('cards-card-title');
+
+  [...wrapper.querySelectorAll('p, h1, h2, h3, h4, h5, h6')].forEach((el) => {
+    if (el !== title) el.classList.add('cards-card-description');
+  });
+
+  return wrapper;
+}
+
 function decorateStructuredCardBodies(card, textOnly = false) {
   const bodyCells = [...card.querySelectorAll(':scope > .cards-card-body')];
   const contentCells = bodyCells.filter(hasContent);
@@ -62,22 +79,19 @@ function decorateStructuredCardBodies(card, textOnly = false) {
     body.dataset.cardLabel = cardLink.label;
   }
 
-  const fields = textOnly ? [
-    [contentCells[0], 'cards-card-title'],
-    [contentCells[1], 'cards-card-description'],
-  ] : [
-    [contentCells[0], 'cards-card-eyebrow'],
-    [contentCells[1], 'cards-card-title'],
-    [contentCells[2], 'cards-card-description'],
-  ];
+  const eyebrowCell = textOnly ? null : contentCells[0];
+  const textCell = contentCells[textOnly ? 0 : 1];
 
-  fields.forEach(([cell, className]) => {
-    if (!cell) return;
-    body.append(moveCellContent(cell, className));
-    cell.remove();
-  });
+  if (eyebrowCell) {
+    body.append(moveCellContent(eyebrowCell, 'cards-card-eyebrow'));
+    eyebrowCell.remove();
+  }
+  if (textCell) {
+    body.append(decorateTitleDescriptionCell(textCell));
+    textCell.remove();
+  }
 
-  contentCells.slice(textOnly ? 2 : 3).forEach((cell) => {
+  contentCells.slice(textOnly ? 1 : 2).forEach((cell) => {
     while (cell.firstChild) body.append(cell.firstChild);
     cell.remove();
   });

@@ -50,17 +50,10 @@
           "valueType": "string"
         },
         {
-          "component": "text",
-          "name": "title",
+          "component": "richtext",
+          "name": "text",
           "value": "",
-          "label": "Title",
-          "valueType": "string"
-        },
-        {
-          "component": "textarea",
-          "name": "description",
-          "value": "",
-          "label": "Description",
+          "label": "Title & Description",
           "valueType": "string"
         },
         {

@@ -72,9 +72,9 @@ npm run build:json
 | Block | Purpose | Authorable Fields | Max Fields | Location |
 |-------|---------|-------------------|-----------|----------|
 | **Header** | Global site navigation | Logo, utility action | N/A | Top of page |
-| **Hero** | Destination feature | Image, alt text, eyebrow, title, description, CTAs, fallback text | 10 | Section 1 |
+| **Hero** | Destination feature | Image, alt text, eyebrow, title & description (richtext), CTAs | 8 | Section 1 |
 | **Columns** | Feature story + image | Image, heading, text, CTA | Inherited | Section 2 |
-| **Cards** | Regional destinations | Image, eyebrow, title, description, link | 5 per card | Sections 3–4 |
+| **Cards** | Regional destinations | Image, eyebrow, title & description (richtext), link | 4 per card | Sections 3–4 |
 | **Custom Button** | Standalone CTA | Label, link, type | 3 | CTA sections |
 | **Footer** | Global site closing | Brand statement, links | N/A | Bottom of page |
 
@@ -83,9 +83,9 @@ npm run build:json
 **Location:** `blocks/{blockname}/_*.json`
 
 - `blocks/header/_header.json` – Header configuration (logo, utility action)
-- `blocks/hero/_hero.json` – Hero block with image, eyebrow, title, description, CTAs, fallback text
+- `blocks/hero/_hero.json` – Hero block with image, eyebrow, title & description (single richtext field), CTAs
 - `blocks/columns/_columns.json` – Two-column layout; child content filtered
-- `blocks/cards/_cards.json` – Card container with item-level card model (eyebrow, title, description, link)
+- `blocks/cards/_cards.json` – Card container with item-level card model (eyebrow, title & description as a single richtext field, link)
 - `blocks/custom-button/_custom-button.json` – Custom CTA block with primary and outline variants
 - `blocks/footer/_footer.json` – Footer configuration (brand, links)
 
@@ -205,7 +205,7 @@ npm run lint:fix      # Auto-fix fixable issues
 ## Known Limitations & Notes
 
 1. **No Dynamic Content** – All card data and text is static; no API calls or filters
-2. **Xwalk Max-Cells Exceptions** – Hero and Cards intentionally exceed the recommended 4-field model limit so authors can recreate existing content consistently.
+2. **Xwalk Max-Cells Exception (Hero only)** – Hero intentionally exceeds the recommended 4-field model limit so authors can recreate existing content consistently. Cards now use a single richtext field for title/description and comply with the 4-field limit.
 3. **Custom Button Scope** – Custom Button is available at section level and is not enabled inside Columns.
 4. **Windows Line Endings** – Unix line endings (LF) are expected by ESLint; use `npm run lint:fix` if line-ending warnings appear.
 5. **Single Page Only** – Capstone scope is `/destinations` page only; no detail pages

@@ -195,17 +195,10 @@
         "valueType": "string"
       },
       {
-        "component": "text",
-        "name": "title",
+        "component": "richtext",
+        "name": "text",
         "value": "",
-        "label": "Title",
-        "valueType": "string"
-      },
-      {
-        "component": "textarea",
-        "name": "description",
-        "value": "",
-        "label": "Description",
+        "label": "Title & Description",
         "valueType": "string"
       },
       {
@@ -359,45 +352,33 @@
         "label": "Eyebrow"
       },
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "label": "Title"
-      },
-      {
-        "component": "textarea",
-        "valueType": "string",
-        "name": "description",
-        "label": "Description"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "primaryCtaLabel",
-        "label": "Primary CTA Label"
-      },
-      {
-        "component": "aem-content",
-        "name": "primaryCtaUrl",
-        "label": "Primary CTA URL"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "secondaryCtaLabel",
-        "label": "Secondary CTA Label"
-      },
-      {
-        "component": "aem-content",
-        "name": "secondaryCtaUrl",
-        "label": "Secondary CTA URL"
-      },
-      {
         "component": "richtext",
+        "valueType": "string",
         "name": "text",
         "value": "",
-        "label": "Fallback Text",
-        "valueType": "string"
+        "label": "Title & Description"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "firstCtaLabel",
+        "label": "First CTA Label"
+      },
+      {
+        "component": "aem-content",
+        "name": "firstCtaUrl",
+        "label": "First CTA URL"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "secondCtaLabel",
+        "label": "Second CTA Label"
+      },
+      {
+        "component": "aem-content",
+        "name": "secondCtaUrl",
+        "label": "Second CTA URL"
       }
     ]
   }
