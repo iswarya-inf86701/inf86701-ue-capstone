@@ -50,7 +50,6 @@
         "text",
         "image",
         "button",
-        "custom-button",
         "title"
       ]
     }
