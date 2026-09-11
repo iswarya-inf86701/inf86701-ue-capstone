@@ -88,8 +88,14 @@
 }
 
 @media (width >= 900px) {
+  .hero-container {
+    padding: 0 20px;
+  }
+
   .hero {
-    min-height: 430px;
-    padding: 86px 32px 58px;
+    max-width: 1504px;
+    min-height: 360px;
+    margin: 0 auto;
+    padding: 58px 32px 48px;
   }
 }

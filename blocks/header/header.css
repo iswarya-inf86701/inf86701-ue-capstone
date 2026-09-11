@@ -37,10 +37,16 @@ header nav[aria-expanded='true'] {
 
   header nav {
     display: flex;
-    justify-content: space-between;
-    gap: 0 32px;
-    max-width: 1264px;
+    justify-content: center;
+    gap: 48px;
+    max-width: 1040px;
     padding: 0 32px;
+  }
+
+  header nav .nav-brand,
+  header nav .nav-sections,
+  header nav .nav-tools {
+    flex: 0 0 auto;
   }
 
   header nav[aria-expanded='true'] {
