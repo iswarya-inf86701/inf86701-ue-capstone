@@ -50,23 +50,23 @@
         {
           "component": "text",
           "valueType": "string",
-          "name": "firstCtaLabel",
+          "name": "primaryCtaLabel",
           "label": "First CTA Label"
         },
         {
           "component": "aem-content",
-          "name": "firstCtaUrl",
+          "name": "primaryCtaUrl",
           "label": "First CTA URL"
         },
         {
           "component": "text",
           "valueType": "string",
-          "name": "secondCtaLabel",
+          "name": "secondaryCtaLabel",
           "label": "Second CTA Label"
         },
         {
           "component": "aem-content",
-          "name": "secondCtaUrl",
+          "name": "secondaryCtaUrl",
           "label": "Second CTA URL"
         }
       ]
