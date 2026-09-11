@@ -464,7 +464,7 @@ main .section.editorial-cta {
 main .section.editorial-cta > .default-content-wrapper {
   max-width: 680px;
   padding-top: 56px;
-  padding-bottom: 56px;
+  padding-bottom: 8px;
 }
 
 main .section.editorial-cta h1,
@@ -475,6 +475,7 @@ main .section.editorial-cta h3 {
   font-size: clamp(36px, 5vw, 56px);
   font-weight: 800;
   line-height: 0.95;
+  text-align: left;
   text-transform: uppercase;
 }
 
@@ -483,6 +484,7 @@ main .section.editorial-cta p {
   color: #87928b;
   font-size: 17px;
   line-height: 1.5;
+  text-align: left;
 }
 
 main .section.editorial-cta p.button-wrapper {
@@ -517,6 +519,23 @@ main .section.editorial-cta a.button.accent:any-link {
 main .section.editorial-cta a.button.secondary:any-link {
   background-color: transparent;
   box-shadow: 0 3px 0 var(--accent-color);
+}
+
+main .section.editorial-cta > .custom-button-wrapper {
+  box-sizing: border-box;
+  display: inline-flex;
+  max-width: none;
+  margin: 8px 4px 56px;
+  padding: 0;
+  vertical-align: top;
+}
+
+main .section.editorial-cta > .default-content-wrapper + .custom-button-wrapper {
+  margin-left: max(24px, calc((100% - 680px) / 2 + 24px));
+}
+
+main .section.editorial-cta > .custom-button-wrapper + .custom-button-wrapper {
+  margin-left: 8px;
 }
 
 main .section.region-cards > .default-content-wrapper {

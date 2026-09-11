@@ -4,12 +4,11 @@
  */
 export default function decorate(block) {
   const rows = [...block.children].map((row) => row.firstElementChild || row);
-  const [labelCell, linkCell, variantCell, ariaLabelCell] = rows;
-  const label = labelCell?.textContent.trim() || 'Learn More';
+  const [labelCell, linkCell, variantCell] = rows;
+  const label = labelCell?.textContent.trim() || 'Custom Button';
   const authoredLink = linkCell?.querySelector('a[href]');
   const href = authoredLink?.getAttribute('href') || linkCell?.textContent.trim() || '#';
   const variant = variantCell?.textContent.trim().toLowerCase() || 'default';
-  const ariaLabel = ariaLabelCell?.textContent.trim();
   const buttonType = ['primary', 'secondary', 'outline'].includes(variant) ? variant : 'default';
 
   const wrapper = document.createElement('p');
@@ -19,7 +18,6 @@ export default function decorate(block) {
   link.className = `custom-button-link ${buttonType}`;
   link.href = href;
   link.textContent = label;
-  if (ariaLabel) link.setAttribute('aria-label', ariaLabel);
 
   wrapper.append(link);
   block.replaceChildren(wrapper);
