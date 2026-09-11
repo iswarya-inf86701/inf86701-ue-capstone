@@ -66,7 +66,7 @@ export default function decorate(block) {
 
     if (nextText && isLinkValue(nextText)) {
       const action = document.createElement('a');
-      action.className = 'hero-action';
+      action.className = 'button secondary hero-action';
       action.href = nextLink?.getAttribute('href') || nextText;
       action.textContent = text;
       moveInstrumentation(item, action);
