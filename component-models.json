@@ -235,6 +235,38 @@
     ]
   },
   {
+    "id": "custom-button",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Label",
+        "value": "Custom Button"
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Link"
+      },
+      {
+        "component": "select",
+        "name": "variant",
+        "label": "Type",
+        "options": [
+          {
+            "name": "primary",
+            "value": "primary"
+          },
+          {
+            "name": "outline",
+            "value": "outline"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "footer",
     "fields": [
       {
