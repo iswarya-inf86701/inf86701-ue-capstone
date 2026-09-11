@@ -466,7 +466,7 @@ main .section.editorial-cta {
 main .section.editorial-cta > .default-content-wrapper {
   max-width: 680px;
   padding-top: 56px;
-  padding-bottom: 56px;
+  padding-bottom: 8px;
 }
 
 main .section.editorial-cta h1,
@@ -498,6 +498,22 @@ main .section.dark-article p:last-child {
 
 main .section.editorial-cta a.button:any-link {
   min-width: 250px;
+}
+
+main .section.editorial-cta > .custom-button-wrapper {
+  display: inline-flex;
+  max-width: none;
+  margin: 8px 4px 56px;
+  padding: 0;
+  vertical-align: top;
+}
+
+main .section.editorial-cta > .default-content-wrapper + .custom-button-wrapper {
+  margin-left: max(24px, calc((100% - 680px) / 2));
+}
+
+main .section.editorial-cta > .custom-button-wrapper + .custom-button-wrapper {
+  margin-left: 8px;
 }
 
 main .section.region-cards > .default-content-wrapper {
