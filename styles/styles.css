@@ -516,6 +516,10 @@ main .section.editorial-cta > .custom-button-wrapper + .custom-button-wrapper {
   margin-left: 8px;
 }
 
+main .section.featured-report > .columns-wrapper {
+  max-width: 1020px;
+}
+
 main .section.region-cards > .default-content-wrapper {
   max-width: 1020px;
   padding-top: 56px;

@@ -13,6 +13,7 @@ This capstone implements a complete one-page travel editorial experience with:
 - **Hero Banner** – Full-width destination feature with image overlay and CTAs
 - **Columns Feature** – Two-column layout pairing destination story with imagery
 - **Regional Cards** – Static card grid for Americas and Europe destinations  
+- **Custom Button** – Authorable CTA block with primary and outline styles
 - **Editorial Content** – Planning guides, regional editor profiles, and seasonal planning
 - **Footer** – Grouped navigation, brand statement, and legal links
 
@@ -71,9 +72,10 @@ npm run build:json
 | Block | Purpose | Authorable Fields | Max Fields | Location |
 |-------|---------|-------------------|-----------|----------|
 | **Header** | Global site navigation | Logo, utility action | N/A | Top of page |
-| **Hero** | Destination feature | Image, title, description, CTA URL | 4 | Section 1 |
+| **Hero** | Destination feature | Image, alt text, eyebrow, title, description, CTAs, fallback text | 10 | Section 1 |
 | **Columns** | Feature story + image | Image, heading, text, CTA | Inherited | Section 2 |
-| **Cards** | Regional destinations | Image, eyebrow, title, link | 4 per card | Sections 3–4 |
+| **Cards** | Regional destinations | Image, eyebrow, title, description, link | 5 per card | Sections 3–4 |
+| **Custom Button** | Standalone CTA | Label, link, type | 3 | CTA sections |
 | **Footer** | Global site closing | Brand statement, links | N/A | Bottom of page |
 
 ### Component Model Files
@@ -81,14 +83,15 @@ npm run build:json
 **Location:** `blocks/{blockname}/_*.json`
 
 - `blocks/header/_header.json` – Header configuration (logo, utility action)
-- `blocks/hero/_hero.json` – Hero block with image, title, description, primary CTA
+- `blocks/hero/_hero.json` – Hero block with image, eyebrow, title, description, CTAs, fallback text
 - `blocks/columns/_columns.json` – Two-column layout; child content filtered
-- `blocks/cards/_cards.json` – Card container with item-level card model (eyebrow, title, link)
+- `blocks/cards/_cards.json` – Card container with item-level card model (eyebrow, title, description, link)
+- `blocks/custom-button/_custom-button.json` – Custom CTA block with primary and outline variants
 - `blocks/footer/_footer.json` – Footer configuration (brand, links)
 
 **Aggregated Definitions:**
 - `component-definition.json` – All block and component definitions for Universal Editor
-- `component-models.json` – All field models for authoring (follows xwalk max 4 cells rule)
+- `component-models.json` – All field models for authoring
 - `component-filters.json` – Content restrictions per section/block
 
 ### Design Tokens
@@ -194,14 +197,18 @@ npm run lint:fix      # Auto-fix fixable issues
 - `.columns-img-col` – Image column with order: 0 (appears first on mobile)
 - `.featured-report .columns` – Specific styling for destination story section
 
+**Custom Button**
+- `.custom-button` – Inline standalone button block
+- `.custom-button-link.primary` – Orange filled CTA with dark right-bottom accent
+- `.custom-button-link.outline` – Outline CTA with orange right-bottom accent
+
 ## Known Limitations & Notes
 
 1. **No Dynamic Content** – All card data and text is static; no API calls or filters
-2. **Secondary CTA Removed** – Hero model limited to primary CTA only (xwalk max 4 cells constraint)
-3. **Hero Eyebrow Removed from Model** – Kept in CSS for backward compatibility; remove from template if unused
-4. **Card Description Removed** – Model focused on essentials (image, eyebrow, title, link)
-5. **Windows Line Endings** – Auto-fixed to Unix (LF) in linting step; no special config needed
-6. **Single Page Only** – Capstone scope is `/destinations` page only; no detail pages
+2. **Xwalk Max-Cells Exceptions** – Hero and Cards intentionally exceed the recommended 4-field model limit so authors can recreate existing content consistently.
+3. **Custom Button Scope** – Custom Button is available at section level and is not enabled inside Columns.
+4. **Windows Line Endings** – Unix line endings (LF) are expected by ESLint; use `npm run lint:fix` if line-ending warnings appear.
+5. **Single Page Only** – Capstone scope is `/destinations` page only; no detail pages
 
 ## Testing & Validation
 
