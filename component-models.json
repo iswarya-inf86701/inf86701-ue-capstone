@@ -105,7 +105,7 @@
         "options": [
           {
             "name": "default",
-            "value": "default"
+            "value": ""
           },
           {
             "name": "primary",
@@ -231,45 +231,6 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
-      }
-    ]
-  },
-  {
-    "id": "custom-button",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "label",
-        "label": "Label"
-      },
-      {
-        "component": "aem-content",
-        "name": "link",
-        "label": "Link"
-      },
-      {
-        "component": "select",
-        "name": "variant",
-        "label": "Type",
-        "options": [
-          {
-            "name": "default",
-            "value": "default"
-          },
-          {
-            "name": "primary",
-            "value": "primary"
-          },
-          {
-            "name": "secondary",
-            "value": "secondary"
-          },
-          {
-            "name": "outline",
-            "value": "outline"
-          }
-        ]
       }
     ]
   },

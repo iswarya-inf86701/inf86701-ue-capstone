@@ -75,19 +75,7 @@ function buildAutoBlocks() {
  * @param {HTMLElement} main The main container element
  */
 export function decorateButtons(main) {
-  main.querySelectorAll('.button-container a[href]').forEach((a) => {
-    if (a.querySelector('img')) return;
-
-    const container = a.closest('.button-container');
-    a.className = 'button';
-    if (container.classList.contains('primary')) a.classList.add('primary');
-    if (container.classList.contains('secondary')) a.classList.add('secondary');
-    container.className = 'button-wrapper';
-  });
-
   main.querySelectorAll('p a[href]').forEach((a) => {
-    if (a.classList.contains('button')) return;
-
     a.title = a.title || a.textContent;
     const p = a.closest('p');
     const text = a.textContent.trim();
@@ -114,7 +102,7 @@ export function decorateButtons(main) {
     } else if (strong) {
       a.classList.add('primary');
       strong.replaceWith(a);
-    } else if (em) {
+    } else {
       a.classList.add('secondary');
       em.replaceWith(a);
     }
